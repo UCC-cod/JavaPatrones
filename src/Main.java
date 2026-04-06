@@ -1,7 +1,23 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import Factory.FabricaTransporte;
+import Factory.Transporte;
+import Singleton.ConexionBD;
+
+
 void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
+
+    //Singleton
+    ConexionBD conexion1 = ConexionBD.getInstance();
+    conexion1.Conectar();
+    ConexionBD conexion2 = ConexionBD.getInstance();
+    conexion2.Conectar();
+    System.out.println("Comparando conexiones: ");
+    System.out.println(conexion1==conexion2);
+
+    //Factory
+    Transporte transporte1 = FabricaTransporte.crearTransporte("barco");
+    transporte1.entregar();
+    Transporte transporte2 = FabricaTransporte.crearTransporte("bicicleta");
+    transporte2.entregar();
+
 
 }
