@@ -3,6 +3,8 @@ import Factory.Transporte;
 import Singleton.ConexionBD;
 import Observer.Canal;
 import Observer.Usuario;
+import Strategy.Compra;
+import Strategy.PagoEfectivo;
 
 
 void main() {
@@ -25,4 +27,10 @@ void main() {
     Canal canal1 = new Canal("Moda");
     canal1.agregarObservador(new Usuario("Carla"));
     canal1.notificarObservadores(" Nuevas tendencias de moda");
+
+    //Strategy
+    Compra compra = new Compra();
+    compra.setMetodoPago(new PagoEfectivo());
+    compra.realizarCompra(5000);
+
 }
