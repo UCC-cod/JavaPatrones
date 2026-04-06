@@ -1,6 +1,8 @@
 import Factory.FabricaTransporte;
 import Factory.Transporte;
 import Singleton.ConexionBD;
+import Observer.Canal;
+import Observer.Usuario;
 
 
 void main() {
@@ -16,8 +18,11 @@ void main() {
     //Factory
     Transporte transporte1 = FabricaTransporte.crearTransporte("barco");
     transporte1.entregar();
-    Transporte transporte2 = FabricaTransporte.crearTransporte("bicicleta");
-    transporte2.entregar();
+    //Transporte transporte2 = FabricaTransporte.crearTransporte("bicicleta");
+    //transporte2.entregar();
 
-
+    //Observer
+    Canal canal1 = new Canal("Moda");
+    canal1.agregarObservador(new Usuario("Carla"));
+    canal1.notificarObservadores(" Nuevas tendencias de moda");
 }
